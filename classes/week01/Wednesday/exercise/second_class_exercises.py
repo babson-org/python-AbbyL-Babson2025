@@ -25,14 +25,11 @@ while time<5:
 20 21 22
 
 '''
-rows=0
-while rows<3:
-      columns=0
-      while columns<3:
-            print(f"{rows}{columns}", end=" ")
-            columns= columns + 1
-      print() #move to next line
-      rows=rows+1
+for row in range(3):
+      for col in range(3):
+            print(str(row)+str(col), end=' ')
+      print()
+print()      
 #%%
 # define txt and input some text from the keyboard into it
 txt=input("Please enter a text: ")
@@ -62,9 +59,10 @@ result: tttt
 myList = ['apple', 'orange', 'pear', 'blueberry', 'peach']
 length = len(myList)
 shifted_list = [None] * length
-for index, value in enumerate(myList):
-      new_index= (index-2)%length
-      shifted_list[new_index]= value
+
+for index in range(length):
+      new_index= (index+3)%length
+      shifted_list[new_index]= myList[index]
 
 print(shifted_list)
       

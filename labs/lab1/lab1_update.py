@@ -22,7 +22,7 @@ def main():
 
 """
 Lab 1 - Python Basics
-Author: <Your Name>
+Author: Abby Liem
 Instructions: Complete each part below. Save your work and commit + sync in Codespaces.
 """
 
