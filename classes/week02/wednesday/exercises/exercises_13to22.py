@@ -5,7 +5,13 @@ from classes.week00.second_class.utils import clear_screen
 Ask the user for a number and print whether it is positive, negative, or zero.
 '''
 # enter code here
-num= int(input("Enter a number"))
+txt="please enter a number"
+while True:
+    try: 
+        num= int(input(txt))
+        break
+    except ValueError:
+        txt="try again!"
 
 if num>0:
     print("your number is positive")
@@ -23,7 +29,14 @@ clear_screen()
 Ask the user for a number and print if it is even or odd.
 '''
 # enter code here
-num=int(input("Enter a number"))
+txt="please enter a number"
+
+while True:
+    try:
+        num=int(input("Enter a number"))
+        break
+    except ValueError:
+        txt="Try again!"
 
 if num%2==0:
     print("your number is even")
@@ -39,8 +52,21 @@ clear_screen()
 Ask the user for two numbers and check if both are positive, either is positive, or none is positive.
 '''
 # enter code here
-num1=int(input("Enter a number"))
-num2=int(input("Enter another number"))
+txt="enter a number"
+while True:
+    try:
+        num1=int(input(txt))
+        break
+    except ValueError:
+        txt="try again" 
+
+txt="enter another number"
+while True:
+    try:
+        num2=int(input(txt))
+        break
+    except ValueError:
+        txt="try again" 
 
 if num1>0 and num2>0:
     print("numbers are both positive")
@@ -75,9 +101,16 @@ Ask the user to guess a secret number (hardcoded) until they get it right.
 '''
 # enter code here
 x=3
-text=int(input("Guess the number"))
 
-while text!=x:
+txt="guess a number"
+while True:
+    try:
+        num=int(input(txt))
+        break
+    except ValueError:
+        txt="enter a number"
+
+while num!=x:
     print("try again")
 
 print("correct")
