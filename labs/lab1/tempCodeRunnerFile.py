@@ -1,36 +1,39 @@
-def draw_diamond():
+def text_analysis():
     """
-    Ask the user for an odd number for the diamond height
-    and print a symmetric diamond of that height.
+    Ask the user for a block of text.
+    Count and display:
+        - Number of letters (only count a-zA-Z)
+        - Number of words   (use split())
+        - Number of sentences (., ?, !) 
     """
-    
-    print("you have some work todo!, draw_diamond")
 
-    # TODO: Prompt user for an odd number
-    txt="Input an odd number"
-    while True:
-        try:
-            num=int(input(txt))
-            if num%2==0:
-                txt="that's an even number"
-                continue
-            break #allow to stop the loop when the user inputs an odd number
-        except ValueError:
-            txt="invalid input. Try again!"
+    print("you have some work todo!, text_analysis")
 
+    # TODO: Get user input
+    text = input("Enter some text: ")
 
-    # TODO: Draw the top half of the diamond
-    for star in range (1, num+1): #+1 to include num
-        if star%2==0:
-            continue #skip the even numbers
-        spaces = (num - star) // 2 #number of spaces needed to center the star and floor division ensures it's not a float
-        print((" " * spaces) + ("*" * star))
+    # TODO: Count letters
+    letters = 0
+    for ch in text:
+        if not ch.isalpha():#skip non-letters
+            continue
+        letters=letters+1
 
-    # TODO: Draw the bottom half of the diamond
-    for star in range(num - 1, 0, -1): #start with num-1 because there is only 1 row with num amount of stars (the widest part of the diamond), which is already executed by the top half of the diamond
-        if star % 2 == 0:   # skip evens
-         continue
-        spaces = (num - star) // 2
-        print(" " * spaces + "*" * star)
-# Uncomment to test Part 1
-draw_diamond()
+    # TODO: Count words
+    words = 0
+    for word in text.split():#breaks the string from the spaces
+        words = words + 1
+
+    # TODO: Count sentences
+    sentences = 0
+    for ch in text:
+        if ch =="." or ch=="!" or ch=="?":  
+            sentences = sentences + 1
+
+    # TODO: Print the results
+    print(f"Letters: {letters}")
+    print(f"Words: {words}")        # replace 0
+    print(f"Sentences: {sentences}")    # replace 0
+
+# Uncomment to test Part 2
+text_analysis()

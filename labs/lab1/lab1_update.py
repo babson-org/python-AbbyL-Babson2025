@@ -53,7 +53,7 @@ def draw_diamond():
     # TODO: Draw the top half of the diamond
     for star in range (1, num+1): #+1 to include num
         if star%2==0:
-            continue #skip the even numbers
+            continue #skip the even numbers because only need odd number of stars
         spaces = (num - star) // 2 #number of spaces needed to center the star and floor division ensures it's not a float
         print((" " * spaces) + ("*" * star))
 
@@ -86,18 +86,29 @@ def text_analysis():
 
     # TODO: Count letters
     letters = 0
+    for ch in text:
+        if not ch.isalpha():#skip non-letters
+            continue
+        letters=letters+1
 
     # TODO: Count words
+    words = 0
+    for word in text.split():#breaks the string from the spaces
+        words = words + 1
 
     # TODO: Count sentences
+    sentences = 0
+    for ch in text:
+        if ch =="." or ch=="!" or ch=="?":  
+            sentences = sentences + 1
 
     # TODO: Print the results
     print(f"Letters: {letters}")
-    print(f"Words: {0}")        # replace 0
-    print(f"Sentences: {0}")    # replace 0
+    print(f"Words: {words}")        # replace 0
+    print(f"Sentences: {sentences}")    # replace 0
 
 # Uncomment to test Part 2
-# text_analysis()
+text_analysis()
 
 
 # ==============================
