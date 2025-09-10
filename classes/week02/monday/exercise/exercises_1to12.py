@@ -58,7 +58,9 @@ Write a program that prints your Python version and platform using the sys and p
 '''
 # enter your code here
 import sys
-print(dir(sys))
+import platform
+import pprint
+pprint.pprint(dir(sys))
 
 pause=input('pause')
 clear_screen()
