@@ -38,7 +38,9 @@ def draw_diamond():
     print("you have some work todo!, draw_diamond")
 
     # TODO: Prompt user for an odd number
-    height = int(input("Enter an odd number for the diamond height: "))
+    txt="Input an odd number"
+    while True:
+        
 
     # TODO: Draw the top half of the diamond
 
