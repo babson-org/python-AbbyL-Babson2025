@@ -145,7 +145,7 @@ def caesar_cipher():
                     new_code = new_code - 26
               elif new_code < ord('A'): 
                     new_code = new_code + 26
-              result = result + chr(new_code)
+              result = result + chr(new_code) #chr turns the number back into a letter
             else:
                 # lowercase letters
                 new_code = ord(ch) + shift
