@@ -31,8 +31,16 @@ Instructions: Complete each part below. Save your work and commit + sync in Code
 # ==============================
 def draw_diamond():
     """
-    Ask the user for an odd number for the diamond height
-    and print a symmetric diamond of that height.
+    This is to draw a diamond that is not filled.
+    To do this, each row is made up of:
+      - Spaces before the first star, which decrease by 1 each row as we go down.
+      - Spaces between the two stars (inner spaces), which increase by 2 each row as we go down.
+    After that, the bottom half repeats the same pattern in reverse to close the diamond.
+    We use a loop to repeat this pattern:
+      - figure out how many front spaces to add
+      - print the first star
+      - add the inner spaces
+      - and then print the second star
     """
     
     print("you have some work todo!, draw_diamond")
@@ -51,18 +59,25 @@ def draw_diamond():
 
 
     # TODO: Draw the top half of the diamond
-    for star in range (1, num+1): #+1 to include num
-        if star%2==0:
-            continue #skip the even numbers because only need odd number of stars
-        spaces = (num - star) // 2 #number of spaces needed to center the star and floor division ensures it's not a float
-        print((" " * spaces) + ("*" * star))
+    mid = num // 2
+    for i in range(mid + 1): #+1 to include the middle row also
+        spaces = " " * (mid - i) #front spaces is one less after each row
+        if i == 0:
+            print(spaces + "*")
+        else:
+            inner_spaces = " " * (2 * i - 1) #inner spaces are 0, 1, 3, etc. So it increases by 2 * the row. But then this would get 0, 2, 4, so we need to minus one.
+            print(spaces + "*" + inner_spaces + "*")
 
     # TODO: Draw the bottom half of the diamond
-    for star in range(num - 1, 0, -1): #start with num-1 because there is only 1 row with num amount of stars (the widest part of the diamond), which is already executed by the top half of the diamond
-        if star % 2 == 0:   # skip evens
-         continue
-        spaces = (num - star) // 2
-        print(" " * spaces + "*" * star)
+    for i in range(mid - 1, -1, -1): #the exact same as the top half, but we start with mid-1 because we already did the widest row of the diamond on top
+                                     # the middle -1 is stop, meaning to make sure the last is 0
+                                     # the last -1 is the step, which means just to go backwards
+        spaces = " " * (mid - i)
+        if i == 0:
+            print(spaces + "*")  # just one star
+        else:
+            inner_spaces = " " * (2 * i - 1)
+            print(spaces + "*" + inner_spaces + "*")
 # Uncomment to test Part 1
 draw_diamond()
 
@@ -72,11 +87,12 @@ draw_diamond()
 # ==============================
 def text_analysis():
     """
-    Ask the user for a block of text.
-    Count and display:
-        - Number of letters (only count a-zA-Z)
-        - Number of words   (use split())
-        - Number of sentences (., ?, !) 
+    This function asks the user to enter some text and it will:
+      - Count how many letters are in the text (skipping spaces, numbers, and punctuation).
+      - Count how many words there are by splitting the text at spaces.
+      - Count how many sentences there are by checking for '.', '!', or '?'.
+    To do this, we use loops to go through the text character by character or word by word,
+    add up the counts, and finally print out the results.
     """
 
     print("you have some work todo!, text_analysis")
@@ -116,8 +132,15 @@ text_analysis()
 # ==============================
 def caesar_cipher():
     """
-    Ask the user for text and a shift value.
-    Provide options to encrypt or decrypt the text using a Caesar cipher.
+    This function is to decrypt or encrypt a text.
+    - First, we prompt to get the input text, the shift value (how many letters to move),
+      and the choice (encrypt or decrypt).
+    - If decrypting, we flip the shift to negative so the letters move backwards.
+    - Then we go through each character in the text by using a for loop:
+        - If it’s a letter, we use ord() to change the letter into a number according to the alphabet so we can then add or subtract the shift value. If it’s not a letter (like a space or punctuation), we just keep it the same.
+        - But we want to make sure the letter wraps around the alphabet to make sure there are no errors and that it won't return non-alphabetical characters (so after Z it becomes A instead of '{').
+        - Then use chr() to change the number back into a letter.
+        - To make sure that we keep the capitalization the uppercase and lowercase letters are handled separately.
     """
 
     print("you have some work todo!, caesar_cypher")
