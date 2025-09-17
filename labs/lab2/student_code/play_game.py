@@ -33,7 +33,7 @@ def import_module(name):
     otherwise loads default_code/*.pyc directly.
     """
     base_dir = Path(__file__).parent.resolve()
-    student_py = base_dir / f"{name}.py"
+    student_py = base_dir / f"{name}.py" 
     default_pyc = base_dir.parent / "default_code" / f"{name}.pyc"
 
     if student_py.exists():
