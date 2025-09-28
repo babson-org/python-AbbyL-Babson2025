@@ -15,7 +15,7 @@ def _update_position(active_client, transaction):
 
             active_client['positions'].append(position)    # or client['positions].append(position)
     elif transaction['type'] == 'BUY':
-        
+        pass
     elif transaction['type'] == 'SELL':
         pass
     elif transaction['type'] == 'WITHDRAWAL':
@@ -24,4 +24,3 @@ def _update_position(active_client, transaction):
         print('FATAL ERROR: we should never get here _update_postion')
         exit()
     return
-
