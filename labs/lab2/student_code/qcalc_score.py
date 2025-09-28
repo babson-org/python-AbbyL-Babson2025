@@ -16,11 +16,32 @@ def calc_score(board: list[int]):
         '''         
          
         # TODO: Sum the values at board[a], board[b], board[c] 
+        sum = board[a] + board[b] + board[c]
         # TODO: Return 30 if X wins, -30 if O wins otherwise do not return
+        if sum == 30:
+            return 30
+        if sum == -30:
+            return -30
         pass
      
     # TODO: For each of the 8 ways to win
+    win = [
+    (0, 1, 2),  #rows
+    (3, 4, 5),
+    (6, 7, 8),
+    (0, 3, 6),  #columns
+    (1, 4, 7),
+    (2, 5, 8),
+    (0, 4, 8),  #diagonals
+    (2, 4, 6),
+    ]
     # TODO: Check the cells in each row, column, or diagonal using line_sum
+    for a, b, c in win:
+        for a, b, c in win:
+            result = line_sum(a, b, c)
+        if result is not None:
+            return result
     # TODO: Return 0 if line_sum() didn't return 30 or -30
+    return 0
     pass
 
