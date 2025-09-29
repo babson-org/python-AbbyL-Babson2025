@@ -8,7 +8,13 @@ def calc_score(board: list[int]):
         if they add upto -30 return -30
         else return 0
     """
-     
+    if abs(board[0] + board[1] + board[2]) ==10:
+        return board[0] + board[1] + board[2]
+    elif...
+
+    else:
+        return 0
+
     def line_sum(a, b, c):
         '''
             line_sum takes 3 numbers and if the sum is either 30

@@ -10,9 +10,8 @@ def ai_move(board: list[int]):
         so in this case your function should return 2
     """
     # TODO: Loop through board
-    for idx in board:
+    for idx in range (9):
     # TODO: Find the first index where abs(cell) != 10
-        if abs(idx) != 10:
+        if abs(board[idx]) != 10:
     # TODO: Return that index as the AI's move
             return idx
-    pass
