@@ -39,13 +39,39 @@ def print_board(board: list[int]):
     
     def cell(value: int) -> str:
         # TODO: Return 'X' if value == 10
+        if value == 10:
+            return 'X'
+    
         # TODO: Return 'O' if value == -10
+        elif value == -10:
+            return 'O'
+        
         # TODO: Otherwise, return str(value)  -> if not 10 or -10 return idx 1-9 as a string
+        else:
+            return str(value)
         pass
         
     clear_screen()
     # TODO: Loop through rows
+    for row in range(3):
     # TODO: For each row, print formatted board row using cell()
+        row_values = []
+
+        # Loop through each column in the row (3 columns total)
+        for col in range(3):
+            #row has 3 cells so to get to the start of a row, you multiply the row number by 3. Then you add the column number to move within that row.
+            index = row * 3 + col
+            #convert the value into X, O, or a number (from function above)
+            row_values.append(cell(board[index]))
+
+        # Print the row with formatting
+        print("   |   |   ")
+        print(" " + row_values[0] + " | " + row_values[1] + " | " + row_values[2] + " ")
+        print("   |   |   ")
+
+        # Print a divider after rows 0 and 1, but not after row 2
+        if row < 2:
+            print("-----------")
     # HINT: For each row create a list of what should be printed
     #       row_values = [ 'X', '2', '3' ] call cell() each time to get each value
     #       add the board layout:
