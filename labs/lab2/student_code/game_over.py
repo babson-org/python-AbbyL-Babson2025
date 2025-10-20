@@ -1,5 +1,7 @@
 
 from calc_score import calc_score
+
+
 def game_over(board: list[int]):
     """
         After every move (see play_game) we check to see if the game 
@@ -7,7 +9,7 @@ def game_over(board: list[int]):
         or if ther are no open moves left on the board
         Returns True if the game has a winner or no remaining moves, False otherwise.
     """
-    
+
     # TODO: Check if all cells are filled (abs(cell) == 10)
     if all(abs(cell) == 10 for cell in board): #all function used to go through every cell
         return True
@@ -18,7 +20,3 @@ def game_over(board: list[int]):
     # TODO: Return True if game over, otherwise False
     return False
     pass
-
-    
-
-
