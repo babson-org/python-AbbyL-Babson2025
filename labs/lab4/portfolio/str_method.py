@@ -2,6 +2,7 @@
 def portfolio_str(self):
     """TODO: return a readable summary string. self is a Portfolio
     Example (format is flexible):
-        "Bob has 2 positions and $1,234.56"
+        "Bob has 2 positions and $1,234.56" <- need to know num of positions
     """
-    return f"COMPLETE THIS LINE"
+    num_positions = len(self.positions)
+    return f"{self.client} has {num_positions} positions and ${self.cash}"
